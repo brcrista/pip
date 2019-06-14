@@ -66,6 +66,43 @@ stages:
     steps:
     - template: steps/unit-tests.yml
 
+- stage: integration_test
+  displayName: Integration test
+  jobs:
+  - job:
+    strategy:
+      matrix:
+        Python27-Linux:
+          python.version: '2.7'
+          vmImage: ubuntu-latest
+        Python37-Linux:
+          python.version: '3.7'
+          vmImage: ubuntu-latest
+        Python27-MacOS:
+          python.version: '2.7'
+          vmImage: macos-latest
+        Python37-MacOS:
+          python.version: '3.7'
+          vmImage: macos-latest
+    pool:
+      vmImage: $[ variables.vmImage ]
+    steps:
+    - template: steps/integration-tests.yml
+
+  - job:
+    strategy:
+      matrix:
+        Python27-Windows:
+          python.version: '2.7'
+          vmImage: windows-latest
+        Python37-Windows:
+          python.version: '3.7'
+          vmImage: windows-latest
+    pool:
+      vmImage: $[ variables.vmImage ]
+    steps:
+    - template: steps/integration-tests-windows.yml
+
 - stage: package
   displayName: Package
   jobs:
