@@ -1,0 +1,23 @@
+stages:
+- stage: Build
+  jobs:
+  - job: Test_Primary
+    displayName: Test Primary
+    strategy:
+      matrix:
+        Python27-Linux:
+          python.version: '2.7'
+          vmImage: ubuntu-latest
+        Python37:
+          python.version: '3.7'
+          vmImage: ubuntu-latest
+    pool:
+      vmImage: $[ variables.vmImage ]
+    steps:
+    - template: steps/run-tests.yml
+
+- stage: Package
+  jobs:
+  - template: jobs/package.yml
+    parameters:
+      vmImage: ubuntu-latest
