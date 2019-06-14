@@ -7,22 +7,22 @@ stages:
       matrix:
         Linux-Python27:
           python.version: '2.7'
-          vmImage: ubuntu-latest
+          vmImage: ubuntu-16.04
         Linux-Python37:
           python.version: '3.7'
-          vmImage: ubuntu-latest
+          vmImage: ubuntu-16.04
         Windows-Python27:
           python.version: '2.7'
-          vmImage: windows-latest
+          vmImage: vs2017-win2016
         Windows-Python37:
           python.version: '3.7'
-          vmImage: windows-latest
+          vmImage: vs2017-win2016
         MacOS-Python27:
           python.version: '2.7'
-          vmImage: macos-latest
+          vmImage: macOS-10.14
         MacOS-Python37:
           python.version: '3.7'
-          vmImage: macos-latest
+          vmImage: macOS-10.14
     pool:
       vmImage: $[ variables.vmImage ]
     steps:
@@ -36,31 +36,31 @@ stages:
       matrix:
         Linux-Python34:
           python.version: '3.4'
-          vmImage: ubuntu-latest
+          vmImage: ubuntu-16.04
         Linux-Python35:
           python.version: '3.5'
-          vmImage: ubuntu-latest
+          vmImage: ubuntu-16.04
         Linux-Python36:
           python.version: '3.6'
-          vmImage: ubuntu-latest
+          vmImage: ubuntu-16.04
         Windows-Python34:
           python.version: '3.4'
-          vmImage: windows-latest
+          vmImage: vs2017-win2016
         Windows-Python35:
           python.version: '3.5'
-          vmImage: windows-latest
+          vmImage: vs2017-win2016
         Windows-Python36:
           python.version: '3.6'
-          vmImage: windows-latest
+          vmImage: vs2017-win2016
         MacOS-Python34:
           python.version: '3.4'
-          vmImage: macos-latest
+          vmImage: macOS-10.14
         MacOS-Python35:
           python.version: '3.5'
-          vmImage: macos-latest
+          vmImage: macOS-10.14
         MacOS-Python36:
           python.version: '3.6'
-          vmImage: macos-latest
+          vmImage: macOS-10.14
     pool:
       vmImage: $[ variables.vmImage ]
     steps:
@@ -74,16 +74,16 @@ stages:
       matrix:
         Linux-Python27:
           python.version: '2.7'
-          vmImage: ubuntu-latest
+          vmImage: ubuntu-16.04
         Linux-Python37:
           python.version: '3.7'
-          vmImage: ubuntu-latest
+          vmImage: ubuntu-16.04
         MacOS-Python27:
           python.version: '2.7'
-          vmImage: macos-latest
+          vmImage: macOS-10.14
         MacOS-Python37:
           python.version: '3.7'
-          vmImage: macos-latest
+          vmImage: macOS-10.14
     pool:
       vmImage: $[ variables.vmImage ]
     steps:
@@ -94,10 +94,10 @@ stages:
       matrix:
         Windows-Python27:
           python.version: '2.7'
-          vmImage: windows-latest
+          vmImage: vs2017-win2016
         Windows-Python37:
           python.version: '3.7'
-          vmImage: windows-latest
+          vmImage: vs2017-win2016
     pool:
       vmImage: $[ variables.vmImage ]
     steps:
@@ -110,11 +110,11 @@ stages:
     strategy:
       matrix:
         Linux:
-          vmImage: ubuntu-latest
+          vmImage: ubuntu-16.04
         Windows:
-          vmImage: windows-latest
+          vmImage: vs2017-win2016
         MacOS:
-          vmImage: macos-latest
+          vmImage: macOS-10.14
     pool:
       vmImage: $[ variables.vmImage ]
     steps:
