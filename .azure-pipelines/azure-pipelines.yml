@@ -1,5 +1,5 @@
 stages:
-- stage: unit-test-1
+- stage: unit_test_1
   displayName: Unit test group 1
   jobs:
   - job:
@@ -28,7 +28,7 @@ stages:
     steps:
     - template: steps/unit-tests.yml
 
-- stage: unit-test-2
+- stage: unit_test_2
   displayName: Unit test group 2
   jobs:
   - job:
