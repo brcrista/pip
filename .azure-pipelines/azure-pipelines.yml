@@ -1,5 +1,5 @@
 stages:
-- stage: unit-test-2
+- stage: unit-test-1
   displayName: Unit test group 1
   jobs:
   - job:
