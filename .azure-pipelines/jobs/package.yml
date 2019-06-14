@@ -3,9 +3,6 @@ parameters:
 
 jobs:
 - job: Package
-  dependsOn:
-    - Test_Primary
-    - Test_Secondary
   pool:
     vmImage: ${{ parameters.vmImage }}
 
