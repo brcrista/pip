@@ -117,4 +117,5 @@ stages:
           vmImage: macos-latest
     pool:
       vmImage: $[ variables.vmImage ]
-  - template: jobs/package.yml
+    steps:
+    - template: steps/package.yml
