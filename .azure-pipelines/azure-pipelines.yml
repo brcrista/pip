@@ -115,6 +115,6 @@ stages:
           vmImage: windows-latest
         MacOS:
           vmImage: macos-latest
-  - template: jobs/package.yml
-    parameters:
+    pool:
       vmImage: $[ variables.vmImage ]
+  - template: jobs/package.yml
