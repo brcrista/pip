@@ -1,3 +1,6 @@
+trigger:
+- master
+
 jobs:
 - template: jobs/test.yml
   parameters:
