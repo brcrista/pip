@@ -4,8 +4,15 @@ steps:
   inputs:
     versionSpec: '$(python.version)'
 
-- bash: pip install --upgrade setuptools tox pytest-azurepipelines
+- bash: pip install --upgrade setuptools tox
   displayName: Install Tox
 
-- script: tox -e py -- -m unit
+- script: tox -e py -- -m unit --junit-xml=junit/unit-test.xml
   displayName: Tox run unit tests
+
+- task: PublishTestResults@2
+  displayName: Publish Test Results
+  inputs:
+    testResultsFiles: junit/*.xml
+    testRunTitle: 'Python $(python.version)'
+  condition: succeededOrFailed()

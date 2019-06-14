@@ -3,9 +3,8 @@ steps:
   displayName: Use Python $(python.version)
   inputs:
     versionSpec: '$(python.version)'
-    architecture: '$(python.architecture)'
 
-- bash: pip install --upgrade setuptools tox pytest-azurepipelines
+- bash: pip install --upgrade setuptools tox
   displayName: Install Tox
 
 - script: tox -e py -- -m unit -n 3
@@ -25,3 +24,10 @@ steps:
 
     tox -e py -- -m integration -n 3 --duration=5 --junit-xml=junit/integration-test.xml
   displayName: Tox run integration tests
+
+- task: PublishTestResults@2
+  displayName: Publish Test Results
+  inputs:
+    testResultsFiles: junit/*.xml
+    testRunTitle: 'Python $(python.version)'
+  condition: succeededOrFailed()
