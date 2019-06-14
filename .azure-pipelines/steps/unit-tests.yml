@@ -1,0 +1,11 @@
+steps:
+- task: UsePythonVersion@0
+  displayName: Use Python $(python.version)
+  inputs:
+    versionSpec: '$(python.version)'
+
+- bash: pip install --upgrade setuptools tox pytest-azurepipelines
+  displayName: Install Tox
+
+- script: tox -e py -- -m unit
+  displayName: Tox run unit tests

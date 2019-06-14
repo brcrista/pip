@@ -1,5 +1,6 @@
 stages:
-- stage: Test_Primary
+- stage: unit-test-2
+  displayName: Unit test group 1
   jobs:
   - job:
     strategy:
@@ -10,12 +11,25 @@ stages:
         Python37-Linux:
           python.version: '3.7'
           vmImage: ubuntu-latest
+        Python27-Windows:
+          python.version: '2.7'
+          vmImage: windows-latest
+        Python37-Windows:
+          python.version: '3.7'
+          vmImage: windows-latest
+        Python27-MacOS:
+          python.version: '2.7'
+          vmImage: macos-latest
+        Python37-MacOS:
+          python.version: '3.7'
+          vmImage: macos-latest
     pool:
       vmImage: $[ variables.vmImage ]
     steps:
-    - template: steps/run-tests.yml
+    - template: steps/unit-tests.yml
 
-- stage: Test_Secondary
+- stage: unit-test-2
+  displayName: Unit test group 2
   jobs:
   - job:
     strategy:
@@ -29,13 +43,41 @@ stages:
         Python36-Linux:
           python.version: '3.6'
           vmImage: ubuntu-latest
+        Python34-Windows:
+          python.version: '3.4'
+          vmImage: windows-latest
+        Python35-Windows:
+          python.version: '3.5'
+          vmImage: windows-latest
+        Python36-Windows:
+          python.version: '3.6'
+          vmImage: windows-latest
+        Python34-MacOS:
+          python.version: '3.4'
+          vmImage: macos-latest
+        Python35-MacOS:
+          python.version: '3.5'
+          vmImage: macos-latest
+        Python36-MacOS:
+          python.version: '3.6'
+          vmImage: macos-latest
     pool:
       vmImage: $[ variables.vmImage ]
     steps:
-    - template: steps/run-tests.yml
+    - template: steps/unit-tests.yml
 
-- stage: Package
+- stage: package
+  displayName: Package
   jobs:
+  - job:
+    strategy:
+      matrix:
+        Linux:
+          vmImage: ubuntu-latest
+        Windows:
+          vmImage: windows-latest
+        MacOS:
+          vmImage: macos-latest
   - template: jobs/package.yml
     parameters:
-      vmImage: ubuntu-latest
+      vmImage: $[ variables.vmImage ]
