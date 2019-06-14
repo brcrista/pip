@@ -5,22 +5,22 @@ stages:
   - job:
     strategy:
       matrix:
-        Python27-Linux:
+        Linux-Python27:
           python.version: '2.7'
           vmImage: ubuntu-latest
-        Python37-Linux:
+        Linux-Python37:
           python.version: '3.7'
           vmImage: ubuntu-latest
-        Python27-Windows:
+        Windows-Python27:
           python.version: '2.7'
           vmImage: windows-latest
-        Python37-Windows:
+        Windows-Python37:
           python.version: '3.7'
           vmImage: windows-latest
-        Python27-MacOS:
+        MacOS-Python27:
           python.version: '2.7'
           vmImage: macos-latest
-        Python37-MacOS:
+        MacOS-Python37:
           python.version: '3.7'
           vmImage: macos-latest
     pool:
@@ -34,31 +34,31 @@ stages:
   - job:
     strategy:
       matrix:
-        Python34-Linux:
+        Linux-Python34:
           python.version: '3.4'
           vmImage: ubuntu-latest
-        Python35-Linux:
+        Linux-Python35:
           python.version: '3.5'
           vmImage: ubuntu-latest
-        Python36-Linux:
+        Linux-Python36:
           python.version: '3.6'
           vmImage: ubuntu-latest
-        Python34-Windows:
+        Windows-Python34:
           python.version: '3.4'
           vmImage: windows-latest
-        Python35-Windows:
+        Windows-Python35:
           python.version: '3.5'
           vmImage: windows-latest
-        Python36-Windows:
+        Windows-Python36:
           python.version: '3.6'
           vmImage: windows-latest
-        Python34-MacOS:
+        MacOS-Python34:
           python.version: '3.4'
           vmImage: macos-latest
-        Python35-MacOS:
+        MacOS-Python35:
           python.version: '3.5'
           vmImage: macos-latest
-        Python36-MacOS:
+        MacOS-Python36:
           python.version: '3.6'
           vmImage: macos-latest
     pool:
@@ -72,16 +72,16 @@ stages:
   - job:
     strategy:
       matrix:
-        Python27-Linux:
+        Linux-Python27:
           python.version: '2.7'
           vmImage: ubuntu-latest
-        Python37-Linux:
+        Linux-Python37:
           python.version: '3.7'
           vmImage: ubuntu-latest
-        Python27-MacOS:
+        MacOS-Python27:
           python.version: '2.7'
           vmImage: macos-latest
-        Python37-MacOS:
+        MacOS-Python37:
           python.version: '3.7'
           vmImage: macos-latest
     pool:
@@ -92,10 +92,10 @@ stages:
   - job:
     strategy:
       matrix:
-        Python27-Windows:
+        Windows-Python27:
           python.version: '2.7'
           vmImage: windows-latest
-        Python37-Windows:
+        Windows-Python37:
           python.version: '3.7'
           vmImage: windows-latest
     pool:
